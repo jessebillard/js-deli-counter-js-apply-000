@@ -7,6 +7,8 @@ function takeANumber(katzDeli, name) {
   var message = `Welcome, ${name}. You are number ${katzDeli.length} in line.`;
   return message;
 }
+console.log(takeANumber(katzDeliLine, 'Jeff'));
+console.log(takeANumber(katzDeli, 'Tony'));
 
 
 //funkshion 2...it's goodie
@@ -17,12 +19,15 @@ var otherDeli = ['Steven', 'Blake', 'Avi'];
 function nowServing(otherDeli) {
   if (otherDeli.length > 0) {
     var message = `Currently serving ${otherDeli[0]}.`;
-    otherDeli.shift(otherDeli[0]);
+    console.log('in nowServing', otherDeli.shift())
+    
     return message;
   } else if (emptyDeli.length === 0) {
     return 'There is nobody waiting to be served!';
   } 
 }
+console.log(nowServing(otherDeli));
+console.log(nowServing(emptyDeli));
 
 //funkshion 3...GREEEEENNN LIIIIGGGHHHHHTTTT
 
@@ -35,9 +40,15 @@ function currentLine(line) {
      return emptyMessage;
   }
   
-  else if (fullLine.length > 0) {
-    var message = `The line is currently: 1. ${fullLine[0]}, 2. ${fullLine[1]}, 3. ${fullLine[2]}`;
-    return message;
+  else if (line.length > 0) {
+    var message = 'The line is currently: '
+    for(let i = 0; i < line.length; i++) {
+     var comma = []
+     comma.push(`${(i + 1)}. ${line[i]}`)
+    }
+    return message + comma.join(', ')
+     // 1. ${fullLine[0]}, 2. ${fullLine[1]}, 3. ${fullLine[2]}`;
+    
   } 
 } 
 
